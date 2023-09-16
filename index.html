@@ -14,62 +14,33 @@
 
         </div>
         <div class=container>
-	    <h2>Om datainnsamlingen</h2>
 <form name="submit-to-google-sheet">
-    <h3>E-post</h3>
-  <input name="E-post" type="email" placeholder="Email" required>
-    
- <h3>Kontaktperson/ansvarlig for datainnsamlingen</h3>
-  <input name="Kontaktperson" type="text" placeholder="Kontaktperson">
-    
-     <h3>Forløpig tittel</h3>
-	<p>Gi innsiktsarbeidet deres en foreløpig tittel</p>
-  <input name="Prosjekttittel" type="text" placeholder="Prosjektnavn">
-    
-         <h3>Formål med innsiktsarbeidet</h3>
-    <p>Gi en kort beskrivelse av hva innsiktsarbeidet skal handle om</p>
-  <input name="Kort beskrivelse" type="text" placeholder="Kort beskrivelse">
-
-             <h3>Planlagt startdato</h3>
-  <input name="Planlagt startdato" type="date" id="start"  value="" min="2020-01-01" max="2040-12-31" />
-
-	  <h3>Deltakere i datainnsamlingen</h3>
-    <p>Hvem skal delta i innsiktsarbeidet? Oppgi personer som skal delta i datainnsamling, eller ha tilgang til dataene dere samler inn underveis? <br> 
-	    Oppgi alle som potensielt skal ha tilgang til dataene dere samler inn. </p>
-  <input name="Deltakere" type="text" placeholder="Ola Tveiten (grøftegraver), Margit Hjukse (Storgårdsdatter), Bianca Bals (Tante Pose)">
+                 <h3>Dato</h3>
+  <input name="Dato" type="date" id="start"  value="" min="2020-01-01" max="2040-12-31" />
 	
-<h3>Hvem skal det samles inn opplysninger om?</h3>
-<div>
-    <input type="checkbox" id="sluttbrukere" name="Målgruppe[]" value="Sluttbrukere/innbyggere">
-    <label for="sluttbrukere">Sluttbrukere/innbyggere</label>
-</div>
-<div>
-    <input type="checkbox" id="nav-ansatte" name="Målgruppe[]" value="NAV-ansatte">
-    <label for="nav-ansatte">NAV-ansatte</label>
-</div>
-<div>
-    <input type="checkbox" id="andre" name="Målgruppe[]" value="Andre">
-    <label for="andre">Andre</label>
-</div>
+ <h3>Set Gard</h3>
+  <input name="Set Gard" type="text" placeholder="5">
+    
+     <h3>Set Tobias</h3>
+  <input name="Set Tobias" type="text" placeholder="1">
+    
+         <h3>Fünf-meister Gard</h3>
+  <input name="Fünf-meister Gard" type="text" placeholder="2">
 
+             <h3>Fünf-meister Tobias</h3>
+  <input name="Fünf-meister Tobias" type="text" placeholder="2">
 
-	  <h3>Tilknyttet team/PO/avdeling eller lignende?</h3>
-    <p>Er innsiktsarbeidet/datainnsamlingen tilknyttet en større enhet, oppgi hvilket. Oppgi også et svar om ingen av de øvrige kategoriene passer. </p>
-  <input name="Enhet" type="text" placeholder="PO Helse/ATA/annet">
-
- <h2>Datahåndteringsplan</h2>
-	 <h3>Hvordan skal personopplysningene samles inn? (rekruttering og metode)?</h3>
-  <input name="Metode og rekruttering" type="text" placeholder="Intervjuer, rekruttere digitalt">
-
-	 <h3>Hvor lagres persondata?</h3>
-  <input name="Lagring" type="text" placeholder="Digitalt, med passordbeskyttelse?">
-
-	 <h3>Hvordan sikrer dere at persondata kun er tilgjengelig for de som er satt opp?</h3>
-  <input name="Tilgang" type="text" placeholder="Passordbeskyttelse?">
 	
+<h3>Matchvinner?</h3>
+<div>
+    <input type="checkbox" id="Gard" name="Matchvinner[]" value="Gard">
+    <label for="Gard">Gard</label>
+</div>
+<div>
+    <input type="checkbox" id="Tobias" name="Matchvinner[]" value="Tobias">
+    <label for="Tobias">Tobias</label>
+</div>
 
-  <h3>Planlagt dato sluttdato/dato for sletting av personopplysninger</h3>
-  <input name="Planlagt sletting" type="date" id="start"  value="2024-01-25" min="2023-01-01" max="2040-12-31" />
 	</div>
 	
 <div class="container">
