@@ -40,10 +40,11 @@
     <input type="checkbox" id="Tobias" name="Matchvinner[]" value="Tobias">
     <label for="Tobias">Tobias</label>
 </div>
-	<div>
+<div>
     <input type="checkbox" id="Uavgjort" name="Matchvinner[]" value="Uavgjort">
     <label for="Uavgjort">Uavgjort</label>
 </div>
+
 
 	</div>
 	
@@ -54,7 +55,7 @@
 
 	<div class = "container">
      <h1>Resultater</h1>
-    <a href="thank_you.html">Se resultater</a>
+    <a href="thank_you.html">View Projects</a>
     <script src="script.js"></script>
 	</div>
 
@@ -65,13 +66,14 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    // Get selected checkboxes and store them as an array
-    const selectedMålgruppe = Array.from(form.querySelectorAll('input[name="Matchvinner[]"]:checked'))
-      .map(checkbox => checkbox.value);
+// Get selected checkboxes and store them as an array
+const selectedMatchvinner = Array.from(form.querySelectorAll('input[name="Matchvinner[]"]:checked'))
+  .map(checkbox => checkbox.value);
 
-    // Create a new FormData object with updated Matchvinner value
-    const formData = new FormData(form);
-    formData.set('Målgruppe', selectedMatchvinner.join(', '));
+// Create a new FormData object with updated Matchvinner value
+const formData = new FormData(form);
+formData.set('Matchvinner', selectedMatchvinner.join(', '));
+
 
     // Send the updated formData to the script URL
     fetch(scriptURL, { method: 'POST', body: formData })
