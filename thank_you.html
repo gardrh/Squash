@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Google Sheets Data Visualization</title>
-    <!-- Include the Chart.js library using a CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,96 +10,23 @@
 </head>
 <body>
     <div class="container">
-        <h1>Data Visualization</h1>
-    </div>
 
-    <!-- Create a container for the Matchvinner chart -->
-    <div class="container">
-        <h2>Matchvinner</h2>
-        <canvas id="matchvinnerChart"></canvas>
-    </div>
-
-    <!-- Create a container for the Fünf-meister chart -->
-    <div class="container">
-        <h2>Fünf-meister</h2>
-        <canvas id="funfmeisterChart"></canvas>
-    </div>
-
-    <!-- Create a container for the Set chart -->
-    <div class="container">
-        <h2>Set</h2>
-        <canvas id="setChart"></canvas>
-    </div>
-
+    <h1>Charts</h1>
     
-	<div class = "container">
-     <h1>
-    <a href="index.html">Tilbake</a></h1>
-	</div>
+    <!-- Create a container for each chart -->
+    <div>
+        <canvas id="matchvinnerChart" width="400" height="400"></canvas>
+    </div>
+    <div>
+        <canvas id="setChart" width="400" height="400"></canvas>
+    </div>
+    <div>
+        <canvas id="fünfMeisterChart" width="400" height="400"></canvas>
+    </div>
+
+    <!-- Include your JavaScript code to generate the charts here -->
+    <script src="script.js"></script>
 
 
-    <script>
-        // Replace with your Google Apps Script URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby-oIgNqcZIuwd_yKysTvt-0Zw3Iq8v3erUZz3S4mYXNpWAjzureNqHrQIA4Zzlas0YAw/exec';
-
-        // Fetch data from the Google Apps Script
-        fetch(scriptURL)
-            .then(response => response.json())
-            .then(data => {
-                // Process the data for each category
-                const matchvinnerData = data.map(row => row.Matchvinner);
-                const funfmeisterData = data.map(row => parseFloat(row['Fünf-meister Gard']) + parseFloat(row['Fünf-meister Tobias']));
-                const setData = data.map(row => parseFloat(row['Set Gard']) + parseFloat(row['Set Tobias']));
-
-                // Create Matchvinner chart
-                const matchvinnerCtx = document.getElementById('matchvinnerChart').getContext('2d');
-                new Chart(matchvinnerCtx, {
-                    type: 'pie',
-                    data: {
-                        labels: [...new Set(matchvinnerData)], // Unique values
-                        datasets: [{
-                            data: matchvinnerData,
-                            backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 205, 86, 0.2)'],
-                            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 205, 86, 1)'],
-                            borderWidth: 1,
-                        }],
-                    },
-                });
-
-                // Create Fünf-meister chart
-                const funfmeisterCtx = document.getElementById('funfmeisterChart').getContext('2d');
-                new Chart(funfmeisterCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: data.map(row => row.Dato),
-                        datasets: [{
-                            label: 'Fünf-meister',
-                            data: funfmeisterData,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1,
-                        }],
-                    },
-                });
-
-                // Create Set chart
-                const setCtx = document.getElementById('setChart').getContext('2d');
-                new Chart(setCtx, {
-                    type: 'line',
-                    data: {
-                        labels: data.map(row => row.Dato),
-                        datasets: [{
-                            label: 'Set',
-                            data: setData,
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1,
-                            fill: false,
-                        }],
-                    },
-                });
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
 </body>
 </html>
